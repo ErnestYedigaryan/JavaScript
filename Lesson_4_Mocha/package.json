@@ -1,16 +1,19 @@
 {
-  "name": "epam_js",
+  "name": "mocha_test",
   "version": "1.0.0",
   "description": "",
-  "main": "code.js",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "mocha Lesson_4_Mocha/test/appTest.js",
+    "test": "mocha test/appTest.js",
     "coverage": "nyc npm run test"
   },
   "nyc": {
     "all": true,
     "include": [
-      "Lesson_4_Mocha/app.js"
+      "app.js"
     ],
     "excludes": [
       "**/*.spec.js"
@@ -20,12 +23,10 @@
       "text"
     ]
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.22.0",
-    "eslint-plugin-react": "^7.22.0",
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0"
