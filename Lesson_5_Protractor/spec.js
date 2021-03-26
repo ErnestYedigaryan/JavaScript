@@ -1,4 +1,5 @@
 const { element, by, browser } = require('protractor');
+const { expect } = require('chai');
 
 describe('Protractor Demo App', function () {
     const searchBar = element(by.xpath('.//mat-toolbar-row[2]/aio-search-box/input'));
@@ -16,23 +17,25 @@ describe('Protractor Demo App', function () {
         browser.get('https://angular.io/');
     });
 
+    browser.manage().timeouts().implicitlyWait(20000);
+
     it('should have a result', () => {
         searchBar.sendKeys('What is Angular');
 
         expect(searchResults.isDisplayed()); 
-
-        browser.sleep(500);
         
         ngDoc.click();
-        
-        browser.sleep(500);
 
         expect(ngDocHeader.isDisplayed());
         expect(ngDocArguments.isDisplayed());
         expect(ngDocOptions.isDisplayed());
 
+        // browser.sleep(5000);
+
         introduction.click();
 
         expect(angularBox.isDisplayed());
+
+        // browser.sleep(5000);
     });
 });
