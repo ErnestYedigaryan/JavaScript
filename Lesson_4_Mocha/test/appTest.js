@@ -1,7 +1,6 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 const C = require('../app'); 
-const axios = require('axios');
 
 describe('Calculations test', () => {
     const calc = C;
