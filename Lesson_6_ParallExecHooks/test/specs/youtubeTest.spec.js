@@ -1,18 +1,16 @@
-const { expect, assert } = require('chai');
+const { expect } = require('chai');
 const { describe } = require('mocha');
 const { browser, element, by } = require('protractor');
 
-describe('asdfghjkl;', () => {
+describe('Testing YouTube', () => {
     const userLogo = element(by.xpath('//ytd-masthead/div[3]/div[3]/div[2]/ytd-topbar-menu-button-renderer[3]/button/yt-img-shadow/img'));
     const signInBtn = element(by.xpath('//ytd-masthead/div[3]/div[3]/div[2]/ytd-button-renderer/a/paper-button'));
-    const useAnotherAcc = element(by.xpath('//section/div/div/div/div/ul/li[3]/div'));
     const inputEmail = element(by.xpath('//section/div/div/div[1]/div/div[1]/div/div[1]/input'));
     const inputPassword = element(by.xpath('//section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input'));
     const toggleTheme = element(by.xpath('//ytd-toggle-theme-compact-link-renderer'));
     const darkTheme = element(by.xpath('//div[4]/ytd-multi-page-menu-renderer/div[3]/div[1]/yt-multi-page-menu-section-renderer/div[2]/ytd-compact-link-renderer[3]/a/paper-item'));
     const suggestedVideos = element.all(by.css('#content > ytd-rich-grid-media'));
     const WLVideoOpt = element(by.xpath('//div[6]/ytd-rich-item-renderer[7]/div/ytd-rich-grid-media/div[1]/div/div[2]/ytd-menu-renderer/yt-icon-button/button/yt-icon'));
-    // const sixthVideoOpt = element(by.xpath('//div[6]/ytd-rich-item-renderer[6]/div/ytd-rich-grid-media/div[1]/div/div[2]/ytd-menu-renderer/yt-icon-button/button/yt-icon'));
     const video4 = element(by.xpath('//div[6]/ytd-rich-item-renderer[7]/div/ytd-rich-grid-media/div/div/div/h3/a'));
     const saveToWL = element(by.xpath('//yt-formatted-string[normalize-space()="Save to Watch later"]'));
     const menuBtn = element(by.xpath('//yt-icon-button[2]/button/yt-icon'));
