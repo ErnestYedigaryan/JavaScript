@@ -2,22 +2,20 @@ const { expect } = require('chai');
 const { describe } = require('mocha');
 const { browser, element, by } = require('protractor');
 
-describe('Testing YouTube', () => {
-    const userLogo = element(by.xpath('//ytd-masthead/div[3]/div[3]/div[2]/ytd-topbar-menu-button-renderer[3]/button/yt-img-shadow/img'));
-    const signInBtn = element(by.xpath('//ytd-masthead/div[3]/div[3]/div[2]/ytd-button-renderer/a/paper-button'));
-    const inputEmail = element(by.xpath('//section/div/div/div[1]/div/div[1]/div/div[1]/input'));
+describe('asdfghjkl;', () => {
+    const userLogo = element(by.css('img#img[alt="Avatar image"]'));
+    const signInBtn = element(by.css('paper-button[aria-label="Sign in"]'));
+    const inputEmail = element(by.css('input[type="email"]'));
     const inputPassword = element(by.xpath('//section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input'));
     const toggleTheme = element(by.xpath('//ytd-toggle-theme-compact-link-renderer'));
-    const darkTheme = element(by.xpath('//div[4]/ytd-multi-page-menu-renderer/div[3]/div[1]/yt-multi-page-menu-section-renderer/div[2]/ytd-compact-link-renderer[3]/a/paper-item'));
-    const suggestedVideos = element.all(by.css('#content > ytd-rich-grid-media'));
+    const darkTheme = element(by.xpath('//paper-item/yt-formatted-string[contains(@id,"label") and normalize-space()="Dark theme"]'));
+    const suggestedVideos = element.all(by.css('#content  h3.ytd-rich-grid-media a'));
     const WLVideoOpt = element(by.xpath('//div[6]/ytd-rich-item-renderer[7]/div/ytd-rich-grid-media/div[1]/div/div[2]/ytd-menu-renderer/yt-icon-button/button/yt-icon'));
     const video4 = element(by.xpath('//div[6]/ytd-rich-item-renderer[7]/div/ytd-rich-grid-media/div/div/div/h3/a'));
     const saveToWL = element(by.xpath('//yt-formatted-string[normalize-space()="Save to Watch later"]'));
-    const menuBtn = element(by.xpath('//yt-icon-button[2]/button/yt-icon'));
-    const history = element(by.xpath('//div[2]/ytd-guide-entry-renderer[1]/a/paper-item'));
-    const watchLater = element(by.xpath('//div[2]/ytd-guide-entry-renderer[2]/a/paper-item'));
-
-
+    const menuBtn = element(by.css('button#button[aria-label="Guide"]'));
+    const history = element(by.xpath('//paper-item/yt-formatted-string[contains(@class,"title") and normalize-space()="History"]'));
+    const watchLater = element(by.xpath('//paper-item/yt-formatted-string[contains(@class,"title") and normalize-space()="Watch later"]'));
 
     before(() => {
         browser.get(browser.baseUrl);
@@ -42,7 +40,11 @@ describe('Testing YouTube', () => {
         
         browser.refresh();
         browser.sleep(2000);
-        expect(suggestedVideos).to.not.equal(element.all(by.css('#content > ytd-rich-grid-media')));
+        suggestedVideos.getAttribute('aria-label').then(title => {
+            element.all(by.css('#content  h3.ytd-rich-grid-media a')).getAttribute('aria-label').then(titleAfterRefresh => {
+                expect(title).to.not.equal(titleAfterRefresh);
+            });
+        });
     });
 
     it('check that videos add to history', () => {
@@ -90,8 +92,8 @@ describe('Testing YouTube', () => {
         signOutBtn.click();
 
         WLVideoOpt.click();
-        saveToWL.isPresent().then(bool => {
-            expect(bool).to.be.false;
+        saveToWL.isPresent().then(present => {
+            expect(present).to.be.false;
         });
         browser.sleep(1000);
     });

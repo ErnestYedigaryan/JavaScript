@@ -1,8 +1,8 @@
 const yargs = require('yargs').argv;
 
 exports.config = {
-    seleniumAddress: 'https://localhost:4444/wd/hub/',
-    // directConnect: true,
+    // seleniumAddress: 'https://localhost:4444/wd/hub/',
+    directConnect: true,
     specs: ['../test/**/*.spec.js'],
     baseUrl: 'https://www.youtube.com/',
     capabilities: {
