@@ -1,16 +1,41 @@
 {
-  "name": "epam_JS",
+  "name": "epam_js",
   "version": "1.0.0",
   "description": "",
   "main": "code.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha Lesson_4_Mocha/test/appTest.js",
+    "coverage": "nyc npm run test",
+    "prestart-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "protractor": "protractor Lesson_5_Protractor/conf.js",
+    "test:hub": "protractor Lesson_6_ParallExecHooks/conf/conf.js",
+    "test:pom": "protractor ./Lesson_7_POM/conf/protractor.config.js --disableChecks"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "Lesson_4_Mocha/app.js"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.3.4",
     "eslint": "^7.22.0",
-    "eslint-plugin-react": "^7.22.0"
-  }
+    "eslint-plugin-react": "^7.22.0",
+    "jasmine": "^3.7.0",
+    "mocha": "^8.3.2",
+    "mocha-parallel-tests": "^2.3.0",
+    "nyc": "^15.1.0",
+    "protractor": "^7.0.0",
+    "selenium-webdriver": "^4.0.0-beta.2",
+    "yargs": "^16.2.0"
+  },
+  "dependencies": {}
 }
