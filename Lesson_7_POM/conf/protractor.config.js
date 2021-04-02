@@ -24,6 +24,7 @@ exports.config = {
     },
     onPrepare: function () {
         browser.waitForAngularEnabled(false);
+
         browser.driver.manage().window().maximize();
     }
 };

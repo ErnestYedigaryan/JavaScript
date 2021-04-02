@@ -4,28 +4,25 @@ const EC = protractor.ExpectedConditions;
 const { element, by, browser } = require('protractor');
 
 describe('Home page navigation', function () {
-    const signInBtn = element(by.css('paper-button[aria-label="Sign in"]'));
-    const inputEmail = element(by.css('input[type="email"]'));
-    const inputPassword = $('#password input');
-    const searchInput = element(by.css('input#search'));
-
     browser.manage().timeouts().implicitlyWait(20000);
 
     beforeEach(function () {
-        browser.waitForAngularEnabled(false);
-
-        browser.driver.manage().window().maximize();
+        browser.get(browser.baseUrl);
     });
 
     before(() => {
         browser.get(browser.baseUrl);
-        signInBtn.click();
-        inputEmail.sendKeys('protselenium@gmail.com');
+
+        PageFactory.getPage('Home').signInBtn.click();
+        PageFactory.getPage('Home').inputEmail.sendKeys('protselenium@gmail.com');
         browser.actions().sendKeys(protractor.Key.ENTER).perform();
-        inputPassword.sendKeys('test2050');
+        PageFactory.getPage('Home').inputPassword.sendKeys('test2050');
         browser.actions().sendKeys(protractor.Key.ENTER).perform();
         browser.sleep(3000);
     });
+
+   
+
 
     it('should have 7 menu items', async function () {
         await PageFactory.getPage('Home').open();
@@ -41,5 +38,10 @@ describe('Home page navigation', function () {
         await browser.wait(EC.elementToBeClickable(firstNavigationButton), 10000);
         const countOfNavigationButtons = await PageFactory.getPage('Home').Navigation.navigationButtons.getCount();
         expect(countOfNavigationButtons).to.be.equal(7);
+    });
+    
+    after(() => {
+        PageFactory.getPage('Home').avatarBtn.click();
+        PageFactory.getPage('Home').signOutBtn.click();
     });
 });

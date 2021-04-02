@@ -5,6 +5,7 @@ const Subscriptions = require('./subscriptions/subscriptions');
 const History = require('./history/history');
 const WatchLater = require('./watchLater/watchLater');
 const LikedVideos = require('./likedVideos/likedVideos');
+const SearchPage = require('./searchPage/searchPage');
 
 class PageFactory {
     static getPage(pageName) {
@@ -21,6 +22,8 @@ class PageFactory {
                 return new WatchLater();
             case 'LikedVideos':
                 return new LikedVideos();
+            case 'SearchPage':
+                return new SearchPage();
             default:
                 return new BasePage();        
         }
