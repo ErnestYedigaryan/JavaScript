@@ -30,12 +30,8 @@ describe('Protractor Demo App', function () {
         expect(ngDocArguments.isDisplayed());
         expect(ngDocOptions.isDisplayed());
 
-        // browser.sleep(5000);
-
         introduction.click();
 
         expect(angularBox.isDisplayed());
-
-        // browser.sleep(5000);
     });
 });
