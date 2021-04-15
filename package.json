@@ -5,15 +5,11 @@
   "main": "code.js",
   "scripts": {
     "test": "mocha Lesson_4_Mocha/test/appTest.js",
-    "coverage": "nyc npm run test"
   },
   "nyc": {
     "all": true,
     "include": [
       "Lesson_4_Mocha/app.js"
-    ],
-    "excludes": [
-      "**/*.spec.js"
     ],
     "reporter": [
       "html",
@@ -26,8 +22,5 @@
   "devDependencies": {
     "chai": "^4.3.4",
     "eslint": "^7.22.0",
-    "eslint-plugin-react": "^7.22.0",
-    "mocha": "^8.3.2",
-    "nyc": "^15.1.0"
-  }
+    "eslint-plugin-react": "^7.22.0"
 }
