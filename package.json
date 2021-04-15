@@ -1,16 +1,20 @@
 {
-  "name": "epam_JS",
+  "name": "epam_js",
   "version": "1.0.0",
   "description": "",
   "main": "code.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "e2e": "protractor Lesson_8_Cucumber/test/e2e/config/protractor.config.js",
-    "pree2e": "node Lesson_8_Cucumber/test/e2e/config/utils/cleanup.js",
-    "postinstall": "webdriver-manager update --versions.standalone=3.10.0 --gecko=false",
-    "e2e:update": "webdriver-manager update",
-    "e2e:generate-report": "node Lesson_8_Cucumber/test/e2e/utils/reporter.js",
-    "e2e:start-server": "webdriver-manager start --versions.standalone=3.10.0"
+    "test": "mocha Lesson_4_Mocha/test/appTest.js",
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "Lesson_4_Mocha/app.js"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -32,4 +36,6 @@
   "dependencies": {
     "cucumber-expressions": "^8.3.0"
   }
+    "chai": "^4.3.4",
+    "eslint": "^7.22.0"
 }
