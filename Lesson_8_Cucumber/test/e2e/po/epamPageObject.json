@@ -1,0 +1,35 @@
+{
+    "Menu": {
+        "isCollection": false,
+        "selector": "button.hamburger-menu__button"
+    },
+    "Expanded Menu": {
+        "isCollection": false,
+        "selector": ".hamburger-menu__list"
+    },
+    "Expanded Menu Sublists": {
+        "isCollection": true,
+        "selector": ".hamburger-menu__sub-list"
+    },
+    "Expanded Menu Row Titles": {
+        "isCollection": true,
+        "selector": ".hamburger-menu__list > .hamburger-menu__item > a.hamburger-menu__link"
+    },
+    "Globus Icon": {
+        "isCollection": false,
+        "selector": ".location-selector__button"
+    },
+    "Sign In Btn": {
+        "isCollection": false,
+        "selector": "paper-button[aria-label='Sign in']"
+    },
+    "Search Input": {
+        "isCollection": false,
+        "selector": "input#search"
+    },
+    "Search Icon": {
+        "isCollection": false,
+        "selector": "button#search-icon-legacy"
+    }
+    
+}
