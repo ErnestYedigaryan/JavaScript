@@ -1,0 +1,34 @@
+{
+  "name": "mocha_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/appTest.js",
+    "coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "app.js"
+    ],
+    "excludes": [
+      "**/*.spec.js"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0"
+  }
+}

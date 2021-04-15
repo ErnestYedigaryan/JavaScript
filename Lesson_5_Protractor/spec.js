@@ -10,7 +10,7 @@ describe('Protractor Demo App', function () {
     const ngDocOptions = element(by.xpath('//ul[@class="toc-list"]/li[normalize-space()="Options"]'));
     const introduction = element(by.css('aio-nav-menu.ng-tns-c18-1 > aio-nav-item:nth-child(1) > div > a'));
     const angularBox = element(by.xpath('.//div[@class=\'card-container\']/a[@href=\'guide/what-is-angular\']'));
-
+    
     browser.manage().window().setSize(1800, 600);
   
     beforeEach(function () {
@@ -30,12 +30,8 @@ describe('Protractor Demo App', function () {
         expect(ngDocArguments.isDisplayed());
         expect(ngDocOptions.isDisplayed());
 
-        // browser.sleep(5000);
-
         introduction.click();
 
         expect(angularBox.isDisplayed());
-
-        // browser.sleep(5000);
     });
 });
